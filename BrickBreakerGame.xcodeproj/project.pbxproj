@@ -16,9 +16,9 @@
 		8D0CEEC825EA774F008EEBB2 /* FireParticles.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8D0CEEC725EA774F008EEBB2 /* FireParticles.sks */; };
 		8DF36AC825EA975700D2D7B9 /* BallTrail.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8DF36AC625EA975700D2D7B9 /* BallTrail.sks */; };
 		8DF36AC925EA975700D2D7B9 /* BrokenPlatform.sks in Resources */ = {isa = PBXBuildFile; fileRef = 8DF36AC725EA975700D2D7B9 /* BrokenPlatform.sks */; };
-		8DF36AD425EA9A0A00D2D7B9 /* paddleBlip.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8DF36ACF25EA9A0A00D2D7B9 /* paddleBlip.wav */; };
-		8DF36AD525EA9A0A00D2D7B9 /* break.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8DF36AD025EA9A0A00D2D7B9 /* break.wav */; };
-		8DF36AD625EA9A0A00D2D7B9 /* pongBlip.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8DF36AD125EA9A0A00D2D7B9 /* pongBlip.wav */; };
+		8DF819A725EBA77E00DD20E3 /* pop.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8DF819A525EBA77E00DD20E3 /* pop.wav */; };
+		8DF819A825EBA77E00DD20E3 /* blipPaddle.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8DF819A625EBA77E00DD20E3 /* blipPaddle.wav */; };
+		8DF819AB25EBA8A700DD20E3 /* cave.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8DF819AA25EBA8A700DD20E3 /* cave.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,9 +33,9 @@
 		8D0CEEC725EA774F008EEBB2 /* FireParticles.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FireParticles.sks; sourceTree = "<group>"; };
 		8DF36AC625EA975700D2D7B9 /* BallTrail.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BallTrail.sks; sourceTree = "<group>"; };
 		8DF36AC725EA975700D2D7B9 /* BrokenPlatform.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BrokenPlatform.sks; sourceTree = "<group>"; };
-		8DF36ACF25EA9A0A00D2D7B9 /* paddleBlip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = paddleBlip.wav; sourceTree = "<group>"; };
-		8DF36AD025EA9A0A00D2D7B9 /* break.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = break.wav; sourceTree = "<group>"; };
-		8DF36AD125EA9A0A00D2D7B9 /* pongBlip.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pongBlip.wav; sourceTree = "<group>"; };
+		8DF819A525EBA77E00DD20E3 /* pop.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pop.wav; sourceTree = "<group>"; };
+		8DF819A625EBA77E00DD20E3 /* blipPaddle.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = blipPaddle.wav; sourceTree = "<group>"; };
+		8DF819AA25EBA8A700DD20E3 /* cave.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = cave.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,9 +94,9 @@
 		8DF36ACD25EA9A0A00D2D7B9 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
-				8DF36ACF25EA9A0A00D2D7B9 /* paddleBlip.wav */,
-				8DF36AD025EA9A0A00D2D7B9 /* break.wav */,
-				8DF36AD125EA9A0A00D2D7B9 /* pongBlip.wav */,
+				8DF819A625EBA77E00DD20E3 /* blipPaddle.wav */,
+				8DF819AA25EBA8A700DD20E3 /* cave.wav */,
+				8DF819A525EBA77E00DD20E3 /* pop.wav */,
 			);
 			path = Sounds;
 			sourceTree = "<group>";
@@ -158,12 +158,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8DF819A825EBA77E00DD20E3 /* blipPaddle.wav in Resources */,
 				8DF36AC925EA975700D2D7B9 /* BrokenPlatform.sks in Resources */,
 				8D0CEEB125EA513B008EEBB2 /* Main.storyboard in Resources */,
-				8DF36AD625EA9A0A00D2D7B9 /* pongBlip.wav in Resources */,
-				8DF36AD425EA9A0A00D2D7B9 /* paddleBlip.wav in Resources */,
+				8DF819AB25EBA8A700DD20E3 /* cave.wav in Resources */,
+				8DF819A725EBA77E00DD20E3 /* pop.wav in Resources */,
 				8D0CEEA825EA513B008EEBB2 /* GameScene.sks in Resources */,
-				8DF36AD525EA9A0A00D2D7B9 /* break.wav in Resources */,
 				8D0CEEC825EA774F008EEBB2 /* FireParticles.sks in Resources */,
 				8DF36AC825EA975700D2D7B9 /* BallTrail.sks in Resources */,
 				8D0CEEB325EA513C008EEBB2 /* Assets.xcassets in Resources */,

@@ -24,9 +24,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-//    let breakSound = SKAction.playSoundFileNamed("break", waitForCompletion: false)
-    let blipPaddleSound = SKAction.playSoundFileNamed("paddleBlip", waitForCompletion: false)
-//    let blipSound = SKAction.playSoundFileNamed("pongBlip", waitForCompletion: false)
+    let popSound = SKAction.playSoundFileNamed("pop", waitForCompletion: false)
+    let blipPaddleSound = SKAction.playSoundFileNamed("blipPaddle", waitForCompletion: false)
+    let gameOverMusic = SKAction.playSoundFileNamed("cave", waitForCompletion: false)
     
     override func didMove(to view: SKView) {
         
@@ -141,21 +141,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         guard let nodeA = contact.bodyA.node else { return }
         guard let nodeB = contact.bodyB.node else { return }
         
-        if contact.bodyA.node?.name == "Brick" {
+        if nodeA.name == "Brick" {
             removeBlock(between: nodeA, object: nodeB)
-//            run(blipPaddleSound)
-        } else if contact.bodyB.node?.name == "Brick" {
+            run(popSound)
+        } else if nodeB.name == "Brick" {
             removeBlock(between: nodeB, object: nodeA)
-//            run(blipPaddleSound)
+            run(popSound)
         }
         
         if nodeA.name == "ball" && nodeB.name == "zone" {
             removeBall(between: nodeA, object: nodeB)
             gameOver()
+            run(gameOverMusic)
         } else if nodeB.name == "ball" && nodeA.name == "zone"{
             removeBall(between: nodeB, object: nodeA)
             gameOver()
+            run(gameOverMusic)
         }
+        
+        if nodeA.name == "ball" && nodeB.name == "paddle" {
+            run(blipPaddleSound)
+            
+        } else if nodeB.name == "ball" && nodeA.name == "paddle"{
+            run(blipPaddleSound)
+            
+        }
+        
         
     }
 }
