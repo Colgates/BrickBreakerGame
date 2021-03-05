@@ -11,10 +11,11 @@ import  GameplayKit
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var isFingerOnPaddle = false
-    
+    var isGameOver = false
     var paddle: SKSpriteNode!
     
     var scoreLabel: SKLabelNode!
+    var restartLabel: SKLabelNode!
     
     var brick: SKSpriteNode!
     
@@ -26,7 +27,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     let popSound = SKAction.playSoundFileNamed("pop", waitForCompletion: false)
     let blipPaddleSound = SKAction.playSoundFileNamed("blipPaddle", waitForCompletion: false)
-    let gameOverMusic = SKAction.playSoundFileNamed("cave", waitForCompletion: false)
     
     override func didMove(to view: SKView) {
         
@@ -74,7 +74,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addChild(dangerZone)
         
         
-        paddle = SKSpriteNode(imageNamed: "paddle-1")
+        paddle = SKSpriteNode(imageNamed: "paddle")
         paddle.size = CGSize(width: 150, height: 30)
         paddle.physicsBody = SKPhysicsBody(rectangleOf: paddle.size)
         paddle.position = CGPoint(x: 512, y: 30)
@@ -92,7 +92,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         let objects = nodes(at: touchLocation)
         if objects.contains(paddle) {
-            isFingerOnPaddle.toggle()
+            isFingerOnPaddle = true
+        }
+        
+        if isGameOver {
+            guard objects.contains(restartLabel) else { return }
+            
+            if let newScene = SKScene(fileNamed: "GameScene") {
+                newScene.scaleMode = self.scaleMode
+                let animation = SKTransition.fade(withDuration: 1.0)
+                self.view?.presentScene(newScene, transition: animation)
+            }
         }
     }
     
@@ -133,8 +143,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func gameOver() {
         let gameOver = SKSpriteNode(imageNamed: "GameOver")
+        isGameOver = true
         gameOver.position = CGPoint(x: 512, y: 384)
         addChild(gameOver)
+
+        restartLabel = SKLabelNode(fontNamed: "Chalkduster")
+        restartLabel.position = CGPoint(x: 512, y: 300)
+        restartLabel.fontSize = 40
+        restartLabel.zPosition = 1
+        restartLabel.text = "Restart"
+        addChild(restartLabel)
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -152,11 +170,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if nodeA.name == "ball" && nodeB.name == "zone" {
             removeBall(between: nodeA, object: nodeB)
             gameOver()
-            run(gameOverMusic)
         } else if nodeB.name == "ball" && nodeA.name == "zone"{
             removeBall(between: nodeB, object: nodeA)
             gameOver()
-            run(gameOverMusic)
         }
         
         if nodeA.name == "ball" && nodeB.name == "paddle" {
@@ -164,9 +180,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
         } else if nodeB.name == "ball" && nodeA.name == "paddle"{
             run(blipPaddleSound)
-            
         }
-        
-        
     }
 }
