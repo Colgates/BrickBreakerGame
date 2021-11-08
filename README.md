@@ -1,7 +1,7 @@
 # BrickBreakerGame
 ![screenshot](/screenshot.webp)
 # Description
-Do you remeber this old game called "Brick Breaker" or if you're old enough you know it by the name "Breakout"
+Do you remeber this old game called "Brick Breaker" or if you're old enough you know it by the name "Breakout". So you have break out all the panels with bouncing ball.
 
 ## Built With
 - Swift
